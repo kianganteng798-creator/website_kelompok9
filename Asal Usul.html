@@ -6,21 +6,21 @@
     <title>Sejarah Internet [DATA STREAM] - Kelompok 9</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* --- General & Base Styles (Tema Ungu Gelap & Modern) --- */
+        
         body {
-            font-family: 'Inter', sans-serif; /* Font modern, mudah dibaca */
+            font-family: 'Inter', sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Latar belakang ungu sangat gelap, dari referensi gambar */
-            color: #e0e0e0; /* Teks abu-abu terang yang nyaman di latar gelap */
+            background-color: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.7;
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* --- Navbar (Konsisten dengan index.html) --- */
+        
         nav {
-            background-color: #120c1a; /* Ungu lebih gelap dari body */
+            background-color: #120c1a; 
             padding: 18px 40px;
             display: flex;
             justify-content: space-between;
@@ -29,11 +29,11 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(138, 43, 226, 0.3); /* Garis ungu aksen transparan */
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3); 
         }
         
         .logo {
-            color: #bf80ff; /* Ungu terang sebagai logo */
+            color: #bf80ff;
             font-family: 'Montserrat', sans-serif;
             font-size: 30px;
             font-weight: 800;
@@ -54,7 +54,7 @@
         }
 
         .nav-links a {
-            color: #b0b0b0; /* Abu-abu netral untuk link normal */
+            color: #b0b0b0;
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
@@ -72,12 +72,12 @@
             transform: translateX(-50%) scaleX(0);
             width: 80%;
             height: 2px;
-            background-color: #bf80ff; /* Garis bawah ungu terang */
+            background-color: #bf80ff;
             transition: transform 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #bf80ff; /* Warna hover ungu terang */
+            color: #bf80ff; 
             background-color: rgba(138, 43, 226, 0.1);
             border-radius: 5px;
         }
@@ -86,17 +86,17 @@
             transform: translateX(-50%) scaleX(1);
         }
 
-        /* Link aktif untuk halaman ini (Sejarah Internet) */
+       
         .nav-links a.active {
-            color: #bf80ff; /* Ungu terang sebagai penanda aktif */
+            color: #bf80ff;
             text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
             border: 1px solid rgba(138, 43, 226, 0.5);
             border-radius: 5px;
             background-color: rgba(138, 43, 226, 0.15);
         }
         .nav-links a.active::after {
-            background-color: transparent; /* Hilangkan garis bawah default */
-            transform: translateX(-50%) scaleX(0); /* Sembunyikan garis bawah default */
+            background-color: transparent; 
+            transform: translateX(-50%) scaleX(0);
         }
 
         .dropdown-content {
@@ -151,20 +151,20 @@
             box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
         }
 
-        /* --- Header Khusus Halaman Sejarah Internet (Tema Ungu Gelap) --- */
+        
         .header-internet {
-            background: linear-gradient(135deg, #120c1a, #2a1f42); /* Gradien ungu gelap */
+            background: linear-gradient(135deg, #120c1a, #2a1f42);
             color: #e0e0e0;
             text-align: center;
             padding: 100px 20px 80px 20px;
-            border-bottom: 2px solid #bf80ff; /* Garis ungu terang */
+            border-bottom: 2px solid #bf80ff; 
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
             position: relative;
             overflow: hidden;
             margin-bottom: 50px;
         }
         
-        /* Efek partikel atau grid di latar belakang header */
+       
         .header-internet::before {
             content: '';
             position: absolute;
@@ -192,7 +192,7 @@
         }
 
         .header-internet h1 {
-            font-family: 'Montserrat', sans-serif; /* Font konsisten dengan index.html */
+            font-family: 'Montserrat', sans-serif; 
             font-size: 52px;
             font-weight: 900;
             letter-spacing: 4px;
@@ -206,27 +206,27 @@
             display: block;
             font-size: 38px;
             letter-spacing: 2px;
-            color: #bf80ff; /* Ungu terang sebagai aksen */
+            color: #bf80ff; 
             text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
             margin-top: 15px;
-            font-family: 'IBM Plex Mono', monospace; /* Tetap pertahankan font techy untuk sub-judul */
+            font-family: 'IBM Plex Mono', monospace; 
         }
 
         .header-internet p {
-            font-family: 'Inter', sans-serif; /* Font konsisten */
+            font-family: 'Inter', sans-serif; 
             font-size: 20px;
             max-width: 800px;
             margin: 0 auto;
             text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
             opacity: 0.9;
-            border: 1px dotted rgba(138, 43, 226, 0.5); /* Border dot ungu transparan */
+            border: 1px dotted rgba(138, 43, 226, 0.5); 
             padding: 15px 25px;
             display: inline-block;
             border-radius: 5px;
-            background-color: rgba(138, 43, 226, 0.05); /* Latar transparan ungu */
+            background-color: rgba(138, 43, 226, 0.05);
         }
 
-        /* Animasi Glitch dihilangkan karena tidak cocok dengan tema ungu elegan, diganti pulse. */
+        
         @keyframes textPulse {
             0% { opacity: 0.9; transform: scale(1); }
             50% { opacity: 1; transform: scale(1.01); }
@@ -234,19 +234,19 @@
         }
 
 
-        /* --- Main Content (Tema Ungu Gelap & Modern) --- */
+       
         .main-content {
             max-width: 950px;
             margin: 0 auto;
             padding: 50px 60px;
-            background-color: #211c2e; /* Ungu gelap yang sedikit lebih terang dari body */
-            border: 1px solid rgba(138, 43, 226, 0.3); /* Border ungu transparan */
+            background-color: #211c2e;
+            border: 1px solid rgba(138, 43, 226, 0.3); 
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(138, 43, 226, 0.1);
             color: #e0e0e0;
             position: relative;
         }
-        /* Efek scanline diubah menjadi pola dekoratif ungu */
+        
         .main-content::before {
             content: '';
             position: absolute;
@@ -268,11 +268,11 @@
         .main-content h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 38px;
-            color: #bf80ff; /* Ungu terang */
+            color: #bf80ff; 
             text-align: left;
             margin-bottom: 35px;
             padding-bottom: 15px;
-            border-bottom: 3px solid #6a1b9a; /* Garis bawah ungu yang lebih solid */
+            border-bottom: 3px solid #6a1b9a; 
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
             letter-spacing: 1px;
             position: relative;
@@ -280,26 +280,26 @@
         }
 
         .main-content h3 {
-            font-family: 'Inter', sans-serif; /* Font konsisten */
+            font-family: 'Inter', sans-serif; 
             font-size: 24px;
-            color: #bf80ff; /* Ungu terang */
+            color: #bf80ff; 
             margin-top: 45px;
             margin-bottom: 20px;
             position: relative;
-            padding-left: 0; /* Hilangkan padding-left default untuk h3 */
+            padding-left: 0;
             text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
             z-index: 1;
         }
         
         .main-content h3::before {
-            content: ""; /* Hilangkan prefix ">>" untuk kesan lebih elegan */
-            display: none; /* Sembunyikan sepenuhnya */
+            content: ""; 
+            display: none;
         }
 
         .main-content p {
             font-size: 19px;
             margin-bottom: 25px;
-            color: #c0c0c0; /* Abu-abu terang */
+            color: #c0c0c0; 
             text-align: justify;
             opacity: 0.95;
             z-index: 1;
@@ -307,13 +307,13 @@
         }
 
         .main-content strong {
-            color: #bf80ff; /* Ungu terang untuk teks penting */
+            color: #bf80ff; 
             font-weight: 700;
             text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
         }
 
         .main-content a {
-            color: #9370db; /* Ungu medium terang untuk link */
+            color: #9370db; 
             text-decoration: underline;
             font-weight: 600;
             transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -321,13 +321,13 @@
         }
 
         .main-content a:hover {
-            color: #bf80ff; /* Ungu terang saat hover */
+            color: #bf80ff; 
             text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
         }
 
         .quote-box {
-            background-color: rgba(138, 43, 226, 0.1); /* Latar belakang ungu transparan */
-            border-left: 4px solid #bf80ff; /* Border ungu terang */
+            background-color: rgba(138, 43, 226, 0.1); 
+            border-left: 4px solid #bf80ff; 
             padding: 30px 35px;
             margin: 45px 0;
             font-style: italic;
@@ -349,7 +349,7 @@
             text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
         }
 
-        /* ----- Gaya Khusus Untuk Tabel Jadwal Pelajar (Tema Ungu Gelap) ----- */
+       
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
@@ -363,8 +363,8 @@
         }
 
         .schedule-table thead th {
-            background-color: rgba(138, 43, 226, 0.25); /* Ungu transparan lebih kuat */
-            color: #bf80ff; /* Ungu terang untuk header tabel */
+            background-color: rgba(138, 43, 226, 0.25); 
+            color: #bf80ff; 
             padding: 18px;
             text-align: left;
             font-weight: 700;
@@ -395,11 +395,11 @@
 
         .schedule-table td.activity {
             font-weight: 600;
-            color: #9370db; /* Ungu medium terang untuk aktivitas */
+            color: #9370db; 
             text-shadow: 0 0 5px rgba(147, 112, 219, 0.5);
         }
 
-        /* Tombol Kembali ke Halaman Utama (Tema Ungu Gelap) */
+        
         .back-button-container {
             text-align: center;
             margin-top: 60px;
@@ -410,7 +410,7 @@
 
         .back-button {
             display: inline-block;
-            background-color: #6a1b9a; /* Ungu lebih gelap */
+            background-color: #6a1b9a; 
             color: white;
             padding: 14px 30px;
             border-radius: 30px;
@@ -419,20 +419,20 @@
             font-weight: 700;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 12px rgba(138, 43, 226, 0.6);
-            border: 2px solid #bf80ff; /* Ungu terang */
+            border: 2px solid #bf80ff;
             text-shadow: none;
             letter-spacing: 0.5px;
         }
 
         .back-button:hover {
-            background-color: #9370db; /* Ungu medium terang */
+            background-color: #9370db;
             transform: translateY(-3px);
             box-shadow: 0 0 20px rgba(138, 43, 226, 0.9);
         }
 
-        /* Footer (Tema Ungu Gelap) */
+        
         footer {
-            background-color: #120c1a; /* Sama dengan navbar */
+            background-color: #120c1a; 
             color: #e0e0e0;
             text-align: center;
             padding: 35px 20px;
@@ -549,4 +549,5 @@
 </body>
 
 </html>
+
 
