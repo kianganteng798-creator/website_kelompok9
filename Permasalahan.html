@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permasalahan Penggunaan Gadget - Kelompok 9</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- General & Base Styles (Tema Ungu Gelap & Modern) --- */
+        body {
+            font-family: 'Inter', sans-serif; /* Font modern, mudah dibaca */
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Latar belakang ungu sangat gelap, dari referensi gambar */
+            color: #e0e0e0; /* Teks abu-abu terang yang nyaman di latar gelap */
+            line-height: 1.7;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar (Konsisten dengan index.html dan sejarah-internet.html) --- */
+        nav {
+            background-color: #120c1a; /* Ungu lebih gelap dari body */
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3); /* Garis ungu aksen transparan */
+        }
+        
+        .logo {
+            color: #bf80ff; /* Ungu terang sebagai logo */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(138, 43, 226, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-left: 35px;
+        }
+
+        .nav-links a {
+            color: #b0b0b0; /* Abu-abu netral untuk link normal */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background-color: #bf80ff; /* Garis bawah ungu terang */
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #bf80ff; /* Warna hover ungu terang */
+            background-color: rgba(138, 43, 226, 0.1);
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* Link aktif untuk halaman ini (Permasalahan) */
+        .nav-links a.active {
+            color: #bf80ff; /* Ungu terang sebagai penanda aktif */
+            text-shadow: 0 0 8px rgba(138, 43, 226, 0.8);
+            border: 1px solid rgba(138, 43, 226, 0.5);
+            border-radius: 5px;
+            background-color: rgba(138, 43, 226, 0.15);
+        }
+        .nav-links a.active::after {
+            background-color: transparent; /* Hilangkan garis bawah default */
+            transform: translateX(-50%) scaleX(0); /* Sembunyikan garis bawah default */
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #1a1a1a;
+            min-width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 12px 18px;
+            color: #e0e0e0;
+            font-size: 17px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #2a1f42;
+            color: #ffffff;
+            border-radius: 0;
+        }
+
+        .subscribe-btn {
+            background-color: #bf80ff;
+            color: #120c1a;
+            border: 2px solid #bf80ff;
+            padding: 12px 25px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-left: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .subscribe-btn:hover {
+            background-color: transparent;
+            color: #bf80ff;
+            border-color: #bf80ff;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.6);
+        }
+
+        /* --- Header Khusus Halaman Permasalahan (Tema Ungu Gelap) --- */
+        .header-permasalahan {
+            background: linear-gradient(135deg, #120c1a, #2a1f42); /* Gradien ungu gelap */
+            color: #e0e0e0;
+            text-align: center;
+            padding: 100px 20px 80px 20px;
+            border-bottom: 2px solid #9370db; /* Garis ungu medium terang */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+
+        .header-permasalahan h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 52px;
+            font-weight: 900;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.7), 0 0 20px rgba(138, 43, 226, 0.5);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .header-permasalahan p {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            margin-top: 15px;
+            font-style: italic;
+            color: #c0c0c0;
+        }
+
+        /* --- Konten Utama Halaman Permasalahan (Tema Ungu Gelap) --- */
+        .main-content {
+            max-width: 900px; /* Lebar yang nyaman */
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #211c2e; /* Ungu gelap yang sedikit lebih terang dari body */
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(138, 43, 226, 0.1);
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        .main-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 38px;
+            color: #bf80ff; /* Ungu terang */
+            border-bottom: 3px solid #6a1b9a; /* Garis bawah ungu yang lebih solid */
+            padding-bottom: 15px;
+            margin-bottom: 35px;
+            text-align: left; /* Biar tidak selalu center */
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .main-content h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 24px;
+            color: #bf80ff; /* Ungu terang */
+            margin-top: 40px;
+            margin-bottom: 18px;
+            position: relative;
+            padding-left: 0; /* Hilangkan padding-left default */
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+        }
+        
+        .main-content h3::before {
+            content: ""; /* Hilangkan bullet default, kita akan pakai ikon */
+            display: none; /* Sembunyikan sepenuhnya */
+        }
+        /* Menggunakan ikon visual sebagai penanda sub-judul */
+        .main-content h3:first-of-type::before { content: '🚨'; margin-right: 8px; font-size: 0.8em; }
+        .main-content h3:nth-of-type(2)::before { content: '🧠'; margin-right: 8px; font-size: 0.8em; }
+        .main-content h3:nth-of-type(3)::before { content: '📉'; margin-right: 8px; font-size: 0.8em; }
+        .main-content h3:nth-of-type(4)::before { content: '👥'; margin-right: 8px; font-size: 0.8em; }
+        .main-content h3::before {
+            display: inline-block; /* Agar ikon dan teks sejajar */
+        }
+
+        .main-content p {
+            font-size: 19px;
+            margin-bottom: 22px;
+            color: #c0c0c0; /* Abu-abu terang */
+            text-align: justify;
+        }
+
+        .main-content strong {
+            color: #bf80ff; /* Ungu terang untuk teks penting */
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+        }
+
+        /* Kotak Masalah/Peringatan (Tema Ungu Gelap) */
+        .problem-box {
+            background-color: rgba(138, 43, 226, 0.1); /* Ungu transparan */
+            border-left: 4px solid #bf80ff; /* Border ungu terang */
+            padding: 25px;
+            margin: 35px 0;
+            border-radius: 8px;
+            box-shadow: inset 0 0 8px rgba(138, 43, 226, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .problem-box p {
+            font-style: italic;
+            color: #e0e0e0; /* Teks abu-abu terang */
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        /* Tambahkan efek latar belakang pada problem-box */
+        .problem-box::before {
+            content: '⚠️'; /* Icon peringatan */
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 60px;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* Tombol Kembali ke Halaman Utama (Tema Ungu Gelap) */
+        .back-button-container {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .back-button {
+            display: inline-block;
+            background-color: #6a1b9a; /* Ungu lebih gelap */
+            color: white;
+            padding: 14px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 12px rgba(138, 43, 226, 0.6);
+            border: 2px solid #bf80ff; /* Ungu terang */
+            text-shadow: none;
+            letter-spacing: 0.5px;
+        }
+
+        .back-button:hover {
+            background-color: #9370db; /* Ungu medium terang */
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.9);
+        }
+
+        /* Footer (Konsisten dengan halaman lain) */
+        footer {
+            background-color: #120c1a; /* Sama dengan navbar */
+            color: #e0e0e0;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        footer p {
+            font-size: 16px;
+            margin: 0;
+            color: #b0b0b0;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">KELOMPOK 9</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Asal Usul.html">Asal Usul</a></li>
+            <li><a href="permasalahan.html" class="active">Permasalahan</a></li>
+            <li><a href="solusi.html">Solusi</a></li>
+            <li><a href="credit.html">Credit</a></li>
+        </ul>
+        <a href="#" class="subscribe-btn">BERGABUNG</a>
+    </nav>
+
+    <header class="header-permasalahan">
+        <h1>Permasalahan Penggunaan Gadget</h1>
+        <p>Tantangan yang Dihadapi di Balik Kemudahan Digital</p>
+    </header>
+
+    <div class="main-content">
+        <h2>Menjelajahi Sisi Gelap Penggunaan Gadget</h2>
+        
+        <p>
+            Di balik segala kemudahan dan manfaat yang ditawarkan, penggunaan gadget juga membawa sejumlah permasalahan serius, terutama di kalangan pelajar. Penggunaan yang tidak bijak dan berlebihan dapat menimbulkan dampak negatif yang memengaruhi tidak hanya kesehatan fisik, tetapi juga kesehatan mental, interaksi sosial, dan performa akademis.
+        </p>
+
+        <h3>1. Masalah Kesehatan Fisik</h3>
+        <p>
+            Penggunaan gadget dalam waktu lama seringkali diiringi dengan gaya hidup kurang gerak. Ini memicu berbagai masalah fisik seperti <strong>sindrom carpal tunnel</strong>, di mana saraf pergelangan tangan terjepit akibat gerakan berulang; <strong>ketegangan mata digital</strong> (digital eye strain) yang menyebabkan mata kering dan lelah; hingga <strong>nyeri pada leher dan punggung</strong> akibat posisi tubuh yang membungkuk. Kurang aktivitas fisik juga meningkatkan risiko obesitas dan penyakit lainnya.
+        </p>
+
+        <div class="problem-box">
+            <p>
+                Tahukah Anda? Sebuah studi menunjukkan bahwa lebih dari 60% pelajar mengalami ketegangan mata digital akibat penggunaan gadget yang berlebihan.
+            </p>
+        </div>
+
+        <h3>2. Dampak Negatif pada Kesehatan Mental</h3>
+        <p>
+            Ketergantungan pada media sosial dan game online dapat memicu masalah kesehatan mental seperti <strong>kecemasan dan depresi</strong>. Paparan konstan terhadap "kehidupan sempurna" orang lain di media sosial seringkali menimbulkan perasaan tidak aman dan membanding-bandingkan diri. Selain itu, <strong>gangguan tidur</strong> menjadi sangat umum karena cahaya biru dari layar gadget menekan produksi melatonin, hormon yang mengatur siklus tidur.
+        </p>
+
+        <h3>3. Penurunan Konsentrasi dan Kualitas Belajar</h3>
+        <p>
+            Gadget adalah sumber distraksi terbesar bagi pelajar. Notifikasi yang terus-menerus dan kemudahan untuk beralih ke aplikasi hiburan dapat merusak fokus dan konsentrasi. Akibatnya, kualitas belajar menurun, dan waktu yang dihabiskan untuk tugas sekolah menjadi tidak efektif. Ini juga berdampak pada <strong>penurunan daya ingat</strong> dan kemampuan untuk memproses informasi secara mendalam.
+        </p>
+
+        <h3>4. Masalah Sosial dan Komunikasi</h3>
+        <p>
+            Meskipun gadget mempermudah komunikasi jarak jauh, ironisnya, ia seringkali mengisolasi kita dalam kehidupan nyata. Banyak pelajar lebih memilih berinteraksi melalui layar ketimbang tatap muka, yang dapat melemahkan <strong>keterampilan sosial</strong> mereka. Hal ini juga berisiko mengurangi empati dan pemahaman terhadap emosi orang lain, karena bahasa tubuh dan nada suara tidak terlihat di percakapan daring.
+        </p>
+
+        <div class="back-button-container">
+            <a href="index.html" class="back-button">Kembali ke Halaman Utama</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kelompok 9. Hak Cipta Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dampak Penggunaan Gadget - Kelompok 9</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS umum untuk seluruh halaman - Berbasis Ungu Gelap */
+        body {
+            font-family: 'Inter', sans-serif; /* Font modern, mudah dibaca */
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Latar belakang ungu sangat gelap, dari referensi gambar */
+            color: #e0e0e0; /* Teks abu-abu terang yang nyaman di latar gelap */
+            line-height: 1.7;
+            scroll-behavior: smooth; /* Smooth scroll untuk navigasi internal */
+        }
+
+        /* Gaya Navbar */
+        nav {
+            background-color: #120c1a; /* Ungu lebih gelap dari body */
+            padding: 18px 40px; /* Padding sedikit lebih besar */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Bayangan lebih gelap */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.3); /* Garis ungu aksen transparan */
+        }
+
+        .logo {
+            color: #bf80ff; /* Ungu terang sebagai logo */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 30px; /* Ukuran lebih besar */
+            font-weight: 800; /* Lebih tebal */
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(138, 43, 226, 0.5); /* Efek glow ungu */
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-left: 35px; /* Jarak antar link lebih besar */
+        }
+
+        .nav-links a {
+            color: #b0b0b0; /* Abu-abu netral untuk link normal */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 10px 15px;
+            display: block;
+            transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background-color: #bf80ff; /* Garis bawah ungu terang */
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #bf80ff; /* Warna hover ungu terang */
+            background-color: rgba(138, 43, 226, 0.1); /* Latar hover ungu transparan */
+            border-radius: 5px;
+        }
+        
+        .nav-links a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #120c1a; /* Ungu gelap konsisten */
+            min-width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+            border: 1px solid rgba(138, 43, 226, 0.4);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            padding: 12px 18px;
+            color: #e0e0e0;
+            font-size: 17px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #2a1f42; /* Ungu lebih terang dari background dropdown */
+            color: #ffffff;
+            border-radius: 0; /* Hilangkan border radius untuk item dropdown */
+        }
+
+        /* Gaya Tombol */
+        .subscribe-btn {
+            background-color: #bf80ff; /* Ungu terang untuk tombol */
+            color: #120c1a; /* Teks gelap di tombol terang */
+            border: 2px solid #bf80ff;
+            padding: 12px 25px; /* Padding lebih besar */
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 30px; /* Lebih bulat */
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            margin-left: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .subscribe-btn:hover {
+            background-color: transparent;
+            color: #bf80ff;
+            border-color: #bf80ff;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.6); /* Glow di hover */
+        }
+
+        /* Gaya Hero Section (Header) */
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px; /* Padding lebih besar */
+            background: linear-gradient(135deg, #120c1a, #2a1f42); /* Gradien ungu gelap */
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 3px solid #bf80ff; /* Garis bawah ungu terang */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-section::before { /* Elemen dekoratif latar belakang */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(138, 43, 226, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(200, 160, 255, 0.15) 0%, transparent 50%);
+            opacity: 0.8;
+            z-index: 1;
+            animation: backgroundPulse 10s infinite alternate ease-in-out;
+        }
+
+        @keyframes backgroundPulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .hero-section-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-section h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px; /* Judul sangat besar */
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            text-shadow: 0 0 15px rgba(138, 43, 226, 0.7), 0 0 25px rgba(255, 255, 255, 0.2); /* Glow kuat */
+        }
+
+        .hero-section h1 span {
+            display: block; /* Memaksa setiap bagian menjadi baris baru */
+            font-size: 48px; /* Ukuran lebih kecil untuk sub-judul */
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #bf80ff; /* Warna ungu terang */
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+        }
+
+        .hero-section p {
+            font-family: 'Inter', sans-serif;
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            color: #e0e0e0;
+            opacity: 0.9;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gaya Konten Pendahuluan */
+        .introduction {
+            padding: 80px 40px; /* Padding lebih besar */
+            max-width: 900px;
+            margin: 50px auto; /* Margin lebih besar */
+            background-color: #211c2e; /* Ungu gelap yang sedikit lebih terang dari body */
+            border-radius: 12px; /* Lebih melengkung */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Bayangan lebih dalam */
+            text-align: justify;
+            border: 1px solid rgba(138, 43, 226, 0.3); /* Border ungu transparan */
+        }
+
+        .introduction h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 38px; /* Judul lebih besar */
+            color: #bf80ff; /* Ungu terang */
+            margin-bottom: 35px; /* Jarak lebih besar */
+            text-align: center;
+            border-bottom: 3px solid #6a1b9a; /* Garis bawah ungu yang lebih solid */
+            padding-bottom: 15px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .introduction p {
+            font-family: 'Inter', sans-serif;
+            font-size: 19px; /* Ukuran teks sedikit lebih besar */
+            margin-bottom: 30px;
+            color: #c0c0c0; /* Abu-abu terang */
+            line-height: 1.8; /* Jarak antar baris nyaman */
+        }
+
+        .introduction p:last-child {
+            margin-bottom: 0;
+        }
+
+        .introduction strong {
+            color: #bf80ff; /* Warna ungu terang untuk teks tebal */
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(138, 43, 226, 0.3);
+        }
+
+        /* Gaya Footer */
+        footer {
+            background-color: #120c1a; /* Sama dengan navbar */
+            color: #e0e0e0;
+            text-align: center;
+            padding: 35px 20px; /* Padding lebih besar */
+            margin-top: 60px; /* Margin lebih besar */
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(138, 43, 226, 0.3);
+        }
+
+        footer p {
+            font-size: 17px;
+            margin: 0;
+            color: #b0b0b0; /* Abu-abu netral */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">KELOMPOK 9</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+             <li><a href="Asal Usul.html">Asal Usul</a></li> </li>
+            <li><a href="permasalahan.html">Permasalahan</a></li>
+            <li><a href="solusi.html">Solusi</a></li>
+            <li><a href="credit.html">Credit</a></li>
+        </ul>
+        <a href="#" class="subscribe-btn">BERGABUNG</a> </nav>
+
+    <header class="hero-section">
+        <div class="hero-section-content">
+            <h1>Dampak Penggunaan Gadget
+                <span>di Luar Pelajaran</span>
+            </h1>
+            <p>
+                Menjelajahi peran teknologi dalam kehidupan pelajar: manfaat, tantangan, dan strategi keseimbangan.
+            </p>
+        </div>
+    </header>
+
+    <div class="introduction">
+        <h2>Selamat Datang di Portal Keseimbangan Digital Kami!</h2>
+        <p>
+            Di era digital yang serba terhubung ini, perangkat gadget telah menjadi bagian tak terpisahkan dari kehidupan sehari-hari, terutama bagi kita para pelajar. Kehadiran smartphone, tablet, dan laptop menawarkan kemudahan akses informasi, sarana belajar yang inovatif, serta alat komunikasi yang tak ternilai harganya. Namun, di balik segala kemudahan tersebut, tersimpan pula berbagai tantangan dan potensi dampak yang perlu kita pahami dan sikapi dengan bijak.
+        </p>
+        <p>
+            Website ini hadir sebagai teman perjalananmu dalam menjelajahi dunia gadget dari sudut pandang seorang pelajar. Kami akan mengupas tuntas berbagai aspek menarik seputar penggunaan perangkat elektronik ini, mulai dari bagaimana gadget dapat menjadi aset berharga untuk menunjang pembelajaranmu, hingga bahaya-bahaya tersembunyi yang mungkin mengintai jika tidak dikelola dengan baik. Kami percaya, pemahaman yang komprehensif akan membantumu memanfaatkan teknologi secara optimal tanpa mengorbankan kualitas pendidikan dan kesejahteraan diri.
+        </p>
+        <p>
+            Melalui platform ini, kami mengajakmu untuk bersama-sama menggali lebih dalam topik <strong>"Dampak Penggunaan Gadget di Luar Pelajaran"</strong>. Mari kita ciptakan keseimbangan yang sehat antara dunia digital dan realitas sehari-hari, serta pastikan gadget menjadi alat bantu yang positif, bukan justru menjadi penghalang dalam meraih cita-cita. Nikmati konten yang telah kami siapkan, dan semoga informasi ini membawa manfaat!
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kelompok 9. Hak Cipta Dilindungi. Ditenagai oleh teknologi.</p>
+    </footer>
+
+</body>
+</html>
